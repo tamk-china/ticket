@@ -18,6 +18,19 @@ public class Ticket {
 	private String startAddress;
 	// 终点站
 	private String endAddress;
+	/**
+	 * 状态
+	 * @see com.tamk.ticket.constants.TicketStatus
+	 */
+	private Integer status;
+	
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
 	public Long getTicketId() {
 		return ticketId;
