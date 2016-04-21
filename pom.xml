@@ -11,7 +11,7 @@
   	<ticket.version>1.0.0-SNAPSHOT</ticket.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jetty.version>8.1.13.v20130916</jetty.version>
-	<spring.version>3.2.4.RELEASE</spring.version>
+	<spring.version>4.1.6.RELEASE</spring.version>
   </properties>
   
   <modules>
