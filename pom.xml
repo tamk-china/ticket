@@ -11,6 +11,7 @@
   	<ticket.version>1.0.0-SNAPSHOT</ticket.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jetty.version>8.1.13.v20130916</jetty.version>
+	<spring.version>3.2.4.RELEASE</spring.version>
   </properties>
   
   <modules>
@@ -26,19 +27,64 @@
         <!-- ================================================= -->
   		<dependency>
   			<groupId>com.tamk.ticket</groupId>
-  			 <artifactId>ticket-dal</artifactId>
-  			 <version>${ticket.version}</version>
+  			<artifactId>ticket-dal</artifactId>
+  			<version>${ticket.version}</version>
   		</dependency>
   		<dependency>
   			<groupId>com.tamk.ticket</groupId>
-  			 <artifactId>ticket-biz</artifactId>
-  			 <version>${ticket.version}</version>
+  			<artifactId>ticket-biz</artifactId>
+  			<version>${ticket.version}</version>
   		</dependency>
   		<dependency>
   			<groupId>com.tamk.ticket</groupId>
-  			 <artifactId>ticket-web</artifactId>
-  			 <version>${ticket.version}</version>
+  			<artifactId>ticket-web</artifactId>
+  			<version>${ticket.version}</version>
   		</dependency>
+		
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		
   	</dependencies>
   </dependencyManagement>
   
