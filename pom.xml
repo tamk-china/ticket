@@ -1,103 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.tamk.ticket</groupId>
-  <artifactId>ticket</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<groupId>com.tamk.ticket</groupId>
+	<artifactId>ticket</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <properties>
-  	<ticket.version>1.0.0-SNAPSHOT</ticket.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jetty.version>8.1.13.v20130916</jetty.version>
-	<spring.version>4.1.6.RELEASE</spring.version>
-  </properties>
-  
-  <modules>
-    <module>ticket-dal</module>
-    <module>ticket-biz</module>
-    <module>ticket-web</module>
-  </modules>
-  
-  <dependencyManagement>
-  	<dependencies>
-  		<!-- ================================================= -->
-        <!-- 模块间依赖   -->
-        <!-- ================================================= -->
-  		<dependency>
-  			<groupId>com.tamk.ticket</groupId>
-  			<artifactId>ticket-dal</artifactId>
-  			<version>${ticket.version}</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>com.tamk.ticket</groupId>
-  			<artifactId>ticket-biz</artifactId>
-  			<version>${ticket.version}</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>com.tamk.ticket</groupId>
-  			<artifactId>ticket-web</artifactId>
-  			<version>${ticket.version}</version>
-  		</dependency>
-		
-		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<!-- servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		
-  	</dependencies>
-  </dependencyManagement>
-  
-  <build>
-  	<pluginManagement>
-  		<plugins>
-  			<plugin>
-  				<groupId>org.mortbay.jetty</groupId>
-               	<artifactId>jetty-maven-plugin</artifactId>
-               <version>${jetty.version}</version>
-  			</plugin>
-  		</plugins>
-  	</pluginManagement>
-  </build>
-  
+	<properties>
+		<ticket.version>1.0.0-SNAPSHOT</ticket.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.version>8.1.13.v20130916</jetty.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+	</properties>
+	
+	<modules>
+		<module>ticket-dal</module>
+		<module>ticket-biz</module>
+		<module>ticket-web</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<!-- ================================================= -->
+			<!-- 模块间依赖   -->
+			<!-- ================================================= -->
+			<dependency>
+				<groupId>com.tamk.ticket</groupId>
+				<artifactId>ticket-dal</artifactId>
+				<version>${ticket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.tamk.ticket</groupId>
+				<artifactId>ticket-biz</artifactId>
+				<version>${ticket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.tamk.ticket</groupId>
+				<artifactId>ticket-web</artifactId>
+				<version>${ticket.version}</version>
+			</dependency>
+			
+			<!-- spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			
+			<!-- servlet -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.9</version>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>${jetty.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<encoding>utf8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
 </project>
