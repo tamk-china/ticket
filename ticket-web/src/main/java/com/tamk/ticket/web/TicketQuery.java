@@ -2,8 +2,8 @@ package com.tamk.ticket.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
 import com.tamk.ticket.web.vo.TicketVo;
 
 
@@ -14,11 +14,12 @@ import com.tamk.ticket.web.vo.TicketVo;
 @Controller
 @RequestMapping("/ticket")
 public class TicketQuery {
+	@ResponseBody
 	@RequestMapping("/queryTickets")
-	public String queryTickets(){
+	public TicketVo queryTickets(){
 		TicketVo ret = new TicketVo();
 		ret.setStartAddress("hello spring mvc");
 		ret.setEndAddress("hello spring mvc");
-		return JSON.toJSONString(ret);
+		return ret;
 	}
 }
