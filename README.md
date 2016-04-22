@@ -1,4 +1,5 @@
 ##to do list##
+- 先看下voyager和settlement的代码，有哪些可以学习的地方
 - csrf和css安全
 - 文件上传，参数提交
 - post和get
@@ -6,9 +7,32 @@
 - mybatis
 - 乐观锁
 - 用netty来实现rpc框架
+	- 并用protobuf作为序列化技术
 - spring的各种注解
 - guava缓存
 - zookeeper连接
 - angular页面
 - junit
 - session和cookie的读取
+- log
+- mybatis注解
+- 使用memchaced
+- 使用redis
+- 使用六边形架构
+- 使用外键
+- 使用复杂sql语句，如join
+- 多线程相关
+- 调用shell和goovy脚本
+- 实现diamond
+- 获取jvm信息做监控用，使用awk和sed进行分析
+- 编写自定义注解
+- 编写mybatis分库分表插件
+- 建立所有的sql语句
+- 使用futrue模式和concurrenthashmap
+- 编写classloader
+- 使用jndi数据源
+- 很多spring的东西都要用一遍
+- 使用properties作为配置的替换符
+- 学习使用storm
+- 打标系统的设计和学习
+- 查看交易的组件化，如何实现
