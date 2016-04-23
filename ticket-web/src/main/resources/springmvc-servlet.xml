@@ -25,6 +25,11 @@
                 <value>application/json;charset=UTF-8</value>  
             </list>  
         </property>  
-    </bean>  
+    </bean> 
+
+    <!-- upload settings -->
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="102400000"></property>
+    </bean> 
 
 </beans>

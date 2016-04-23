@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<title>ticket</title>
 	<script type="text/javascript" src="./lib/angular.min.js"></script>
+	<script type="text/javascript" src="./lib/underscore.js"></script>
 	<script type="text/javascript" src="./js/services.js"></script>
 	<script type="text/javascript" src="./js/checkParam.js"></script>
 	<script type="text/javascript" src="./js/index.js"></script>
@@ -13,7 +14,12 @@
 		<div>
 			测试id：<input type="text" ng-model="testId" check-int/>
 			测试文本：<input type="text" ng-model="testStr" check-str-max="5"/>
-			文件上传：<input type="file" />
+		</div>
+		<div>
+			<form action="ticket/upload" method="post" enctype="multipart/form-data">
+				<input type="file" name="file" />
+				<input type="submit" name="submit" />
+			</form>
 		</div>
 		<div>
 			<table border="1">

@@ -5,7 +5,7 @@ ticketApp.value('constants', {
 }).controller("ticketController", function($scope, $filter, constants, tipService, req){
 	$scope.players = constants.players;
 
-	req.get('ticket/queryTickets', null, function(data){
+	req.get('ticket/queryTickets', {id:123456, title:'tamk'}, function(data){
 		console.log(JSON.stringify(data));
 	});
 })
