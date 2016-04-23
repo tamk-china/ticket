@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="log.base" value="logs"/>
+	<property name="sql.log" value="sql" />
+	<property name="ticket.log" value="ticket" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ticketAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>{log.base}/{ticket.log}/ticket.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>ticket-%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- ticket -->
+	<logger name="com.tamk.ticket" level="WARN">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ticketAppender" />
+	</logger>
+
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ticketAppender" />
+	</root>
+</configuration>

@@ -12,26 +12,24 @@ serviceModule.factory('tipService', function(){
 	};
 
 	return tipService;
-}).factory('req', function(){
+}).factory('req', ['$http', function($http){
 	var reqService = {};
 
 	reqService.get = function(url, param, callback){
 		$http({
 			method: 'GET',
 			url: url,
-			params: param,
-			responseType: 'application/json'
-		}).success(cb);
+			params: param
+		}).success(callback);
 	};
 
 	reqService.post = function(url, param, callback){
 		$http({
 			method: 'POST',
 			url: url,
-			params: param,
-			responseType: 'application/json'
-		}).success(cb);
+			params: param
+		}).success(callback);
 	};
 
 	return reqService;
-});
+}]);

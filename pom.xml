@@ -11,7 +11,8 @@
 		<ticket.version>1.0.0-SNAPSHOT</ticket.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jetty.version>8.1.13.v20130916</jetty.version>
-		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.version>3.2.4.RELEASE</spring.version>
+		<jackson.version>2.0.2</jackson.version>
 	</properties>
 	
 	<modules>
@@ -91,16 +92,50 @@
 				<version>3.1.0</version>
 			</dependency>
 
+			<!-- fastjson -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>1.2.9</version>
 			</dependency>
 
+			<!-- jackson -->
 			<dependency>
 				<groupId>org.codehaus.jackson</groupId>
 				<artifactId>jackson-mapper-asl</artifactId>
 				<version>1.9.13</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>com.springsource.com.fasterxml.jackson.core.jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>com.springsource.com.fasterxml.jackson.core.jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>com.springsource.com.fasterxml.jackson.core.jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<!-- logback -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.1.7</version>
+			</dependency>
+			<dependency>
+				<groupId>org.logback-extensions</groupId>
+				<artifactId>logback-ext-spring</artifactId>
+				<version>0.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>1.6.1</version>
 			</dependency>
 			
 		</dependencies>
