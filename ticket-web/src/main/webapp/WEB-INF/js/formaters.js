@@ -1,0 +1,1 @@
+var formaters = angular.module('formaters', []);

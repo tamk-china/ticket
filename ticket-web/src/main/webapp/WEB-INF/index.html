@@ -4,33 +4,41 @@
 	<title>ticket</title>
 	<script type="text/javascript" src="./lib/angular.min.js"></script>
 	<script type="text/javascript" src="./js/services.js"></script>
+	<script type="text/javascript" src="./js/checkParam.js"></script>
 	<script type="text/javascript" src="./js/index.js"></script>
 </head>
 <body ng-app="ticketApp">
 	<div ng-controller="ticketController">
-		<table border="1">
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>name</th>
-					<th>birthday</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="one in players">
-					<td>{{one.id}}</td>
-					<td>{{one.name}}</td>
-					<td>{{one.birthday | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td>foot</td>
-					<td>foot</td>
-					<td>foot</td>
-				</tr>
-			</tfoot>
-		</table>
+		<div>
+			测试id：<input type="text" ng-model="testId" check-int/>
+			测试文本：<input type="text" ng-model="testStr" check-str-max="5"/>
+			文件上传：<input type="file" />
+		</div>
+		<div>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>name</th>
+						<th>birthday</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="one in players">
+						<td>{{one.id}}</td>
+						<td>{{one.name}}</td>
+						<td>{{one.birthday | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>foot</td>
+						<td>foot</td>
+						<td>foot</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
