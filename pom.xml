@@ -15,10 +15,11 @@
 	</properties>
 	
 	<modules>
-		<module>ticket-dal</module>
+		<module>ticket-domain</module>
+		<module>ticket-service</module>
 		<module>ticket-biz</module>
 		<module>ticket-web</module>
-	</modules>
+  </modules>
 	
 	<dependencyManagement>
 		<dependencies>
@@ -27,7 +28,12 @@
 			<!-- ================================================= -->
 			<dependency>
 				<groupId>com.tamk.ticket</groupId>
-				<artifactId>ticket-dal</artifactId>
+				<artifactId>ticket-domain</artifactId>
+				<version>${ticket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.tamk.ticket</groupId>
+				<artifactId>ticket-service</artifactId>
 				<version>${ticket.version}</version>
 			</dependency>
 			<dependency>
