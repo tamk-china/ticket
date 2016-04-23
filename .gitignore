@@ -18,3 +18,5 @@ tree.txt
 *.txt
 MANIFEST.MF
 *.MF
+*.class
+*.jar

@@ -1,9 +1,12 @@
 package com.tamk.ticket.web.vo;
 
+import java.io.Serializable;
+
 /**
  * @author kuanqiang.tkq
  */
-public class TicketVo {
+public class TicketVo implements Serializable{
+	private static final long serialVersionUID = -8827355106148922171L;
 	private String startAddress;
 	private String endAddress;
 
