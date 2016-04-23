@@ -1,10 +1,36 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>ticket</title>
-	<script src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="./lib/angular.min.js"></script>
+	<script type="text/javascript" src="./js/services.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
 </head>
-<body>
-	
+<body ng-app="ticketApp">
+	<div ng-controller="ticketController">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>birthday</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="one in players">
+					<td>{{one.id}}</td>
+					<td>{{one.name}}</td>
+					<td>{{one.birthday | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>foot</td>
+					<td>foot</td>
+					<td>foot</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
 </body>
 </html>
