@@ -11,7 +11,7 @@
 	</appender>
 
 	<appender name="ticketAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>{log.base}/{ticket.log}/ticket.log</File>
+		<File>${log.base}/${ticket.log}/ticket.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>ticket-%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>
