@@ -2,7 +2,6 @@
 - 先看下voyager和settlement的代码，有哪些可以学习的地方
 - csrf和css安全
 - 文件上传，参数提交
-- post和get
 - aop
 - mybatis
 - 乐观锁
@@ -14,11 +13,9 @@
 - angular页面
 - junit
 - session和cookie的读取
-- log
 - mybatis注解
 - 使用memchaced
 - 使用redis
-- 使用六边形架构
 - 使用外键
 - 使用复杂sql语句，如join
 - 多线程相关
