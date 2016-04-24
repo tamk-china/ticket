@@ -1,6 +1,5 @@
 package com.tamk.ticket.service;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 /**

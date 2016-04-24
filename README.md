@@ -6,10 +6,8 @@
 - 乐观锁
 - 用netty来实现rpc框架
 	- 并用protobuf作为序列化技术
-- spring的各种注解
 - guava缓存
 - zookeeper连接
-- angular页面
 - junit
 - session和cookie的读取
 - mybatis注解
@@ -36,3 +34,8 @@
 - 山货数据互联网拉取
 - 安全登录，读取cookie
 - 文件安全
+- mysql和oracle的性能差距
+- mysql数据设计
+	- 外键
+	- 视图
+	- routine是什么
