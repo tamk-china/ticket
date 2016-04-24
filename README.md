@@ -1,7 +1,6 @@
 ##to do list##
 - 先看下voyager和settlement的代码，有哪些可以学习的地方
 - csrf和css安全
-- 文件上传，参数提交
 - aop
 - mybatis
 - 乐观锁

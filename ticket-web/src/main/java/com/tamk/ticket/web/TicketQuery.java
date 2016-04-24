@@ -1,13 +1,12 @@
 package com.tamk.ticket.web;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tamk.ticket.service.FileService;
+import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.web.vo.TicketVo;
 
 /**
@@ -27,20 +26,14 @@ import com.tamk.ticket.web.vo.TicketVo;
 @RequestMapping("/ticket")
 public class TicketQuery {
 	private Logger log = LoggerFactory.getLogger(TicketQuery.class);
-	
-//	@Resource
-//	private FileService fileService;
-	
+
 	@Resource
-	private ApplicationContext applicationContext;
+	private FileManager fileManager;
 
 	@ResponseBody
 	@RequestMapping(value = "/queryTickets", method = RequestMethod.GET)
 	public TicketVo queryTickets(@RequestParam(value = "id") Long id, @RequestParam(value = "title") String title) {
 		log.warn(id + "-" + title);
-		for(String str : applicationContext.getBeanDefinitionNames()){
-			System.out.println("------------" + str);
-		}
 
 		TicketVo ret = new TicketVo();
 		ret.setStartAddress("hello spring mvc");
@@ -50,14 +43,10 @@ public class TicketQuery {
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public void uploadFile(@RequestParam(value = "file", required = false) MultipartFile file) {
-//		try {
-//			fileService.saveFile2Local(file.getOriginalFilename(), file.getInputStream());
-//		} catch (IllegalStateException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
-		System.out.println(Arrays.asList(applicationContext.getBeanDefinitionNames()));
+		try {
+			fileManager.saveFile2Local(file.getOriginalFilename(), file.getInputStream());
+		} catch (IOException e) {
+			log.error(String.format("uploadFile exception [msg = %s] [exception = %s]", e.getMessage(), ExceptionUtils.getStackTrace(e)));
+		}
 	}
 }
