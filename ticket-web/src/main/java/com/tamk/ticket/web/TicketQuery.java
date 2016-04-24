@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,11 +30,18 @@ public class TicketQuery {
 
 	@Resource
 	private FileManager fileManager;
+	
+	@Resource
+	private ApplicationContext applicationContext;
 
 	@ResponseBody
 	@RequestMapping(value = "/queryTickets", method = RequestMethod.GET)
 	public TicketVo queryTickets(@RequestParam(value = "id") Long id, @RequestParam(value = "title") String title) {
 		log.warn(id + "-" + title);
+		
+		for(String str : applicationContext.getBeanDefinitionNames()){
+			System.out.println(str);
+		}
 
 		TicketVo ret = new TicketVo();
 		ret.setStartAddress("hello spring mvc");
