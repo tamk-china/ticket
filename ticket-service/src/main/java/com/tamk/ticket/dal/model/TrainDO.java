@@ -1,11 +1,8 @@
-package com.tamk.ticket.dal.obj;
+package com.tamk.ticket.dal.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class TrainDO implements Serializable{
-	private static final long serialVersionUID = 8910536714449883646L;
-	
+public class TrainDO{
 	private Long id;
 	private Date gmtCreate;
 	private Date gmtModified;

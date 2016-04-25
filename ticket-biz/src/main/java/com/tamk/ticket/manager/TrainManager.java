@@ -1,9 +1,9 @@
-package com.tamk.ticket.dal;
+package com.tamk.ticket.manager;
 
 import java.util.List;
 
 import com.tamk.ticket.dal.model.TrainDO;
 
-public interface TrainMapper {
+public interface TrainManager {
 	List<TrainDO> queryTrain();
 }

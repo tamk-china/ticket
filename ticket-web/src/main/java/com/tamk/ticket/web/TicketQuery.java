@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tamk.ticket.manager.FileManager;
+import com.tamk.ticket.manager.TrainManager;
 import com.tamk.ticket.web.vo.TicketVo;
 
 /**
@@ -30,16 +31,25 @@ public class TicketQuery {
 
 	@Resource
 	private FileManager fileManager;
-	
+
 	@Resource
 	private ApplicationContext applicationContext;
+
+	@Resource
+	private TrainManager trainManager;
+
+	@ResponseBody
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public Object test() {
+		return trainManager.queryTrain();
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "/queryTickets", method = RequestMethod.GET)
 	public TicketVo queryTickets(@RequestParam(value = "id") Long id, @RequestParam(value = "title") String title) {
 		log.warn(id + "-" + title);
-		
-		for(String str : applicationContext.getBeanDefinitionNames()){
+
+		for (String str : applicationContext.getBeanDefinitionNames()) {
 			System.out.println(str);
 		}
 
