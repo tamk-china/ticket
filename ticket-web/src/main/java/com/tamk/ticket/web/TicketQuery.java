@@ -41,7 +41,8 @@ public class TicketQuery {
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test() {
-		return trainManager.queryTrain();
+		Object ret = trainManager.queryTrain();
+		return ret;
 	}
 
 	@ResponseBody
