@@ -84,6 +84,11 @@
 				<artifactId>spring-webmvc</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
 			
 			<!-- servlet -->
 			<dependency>
@@ -154,6 +159,12 @@
 				<artifactId>commons-lang3</artifactId>
 				<version>3.4</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>2.1.1</version>
+			</dependency>
+
 			
 			<!-- mysql -->
 			<dependency>
