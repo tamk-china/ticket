@@ -1,8 +1,10 @@
 package com.tamk.ticket.web;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -40,7 +42,8 @@ public class TicketQuery {
 
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public Object test() {
+	public Object test(HttpServletRequest request) {
+		System.out.println(Arrays.asList(request.getCookies()));
 		Object ret = trainManager.queryTrain();
 		return ret;
 	}
