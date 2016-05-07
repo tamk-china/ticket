@@ -5,5 +5,6 @@
 
 	<import resource="mapper/mybatis-spring-config.xml" />
 	<import resource="beans/service.xml" />
+	<import resource="beans/redis-service.xml" />
 
 </beans>

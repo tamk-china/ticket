@@ -1,6 +1,7 @@
 package com.tamk.ticket.web;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tamk.ticket.dal.model.query.TrainQuery;
-import com.tamk.ticket.domain.Train;
+import com.tamk.ticket.manager.CacheManager;
 import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.manager.TrainManager;
 import com.tamk.ticket.web.vo.TicketVo;
@@ -41,13 +41,18 @@ public class TicketQuery {
 	@Resource
 	private TrainManager trainManager;
 
+	@Resource
+	private CacheManager cacheManager;
+
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		TrainQuery query = new TrainQuery();
-		query.setId(14L);
+		User user = new User();
+		user.setId(123);
+		user.setName("tamk");
+		cacheManager.put("test", user);
 
-		return trainManager.deleteTrain(query);
+		return cacheManager.get("test");
 	}
 
 	@ResponseBody
@@ -72,5 +77,28 @@ public class TicketQuery {
 		} catch (IOException e) {
 			log.error(String.format("uploadFile exception [msg = %s] [exception = %s]", e.getMessage(), ExceptionUtils.getStackTrace(e)));
 		}
+	}
+
+	public static class User implements Serializable{
+		private static final long serialVersionUID = 7989705661451798882L;
+		private int id;
+		private String name;
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
 	}
 }
