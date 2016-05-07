@@ -2,7 +2,6 @@ package com.tamk.ticket.service;
 
 import java.util.List;
 
-import com.tamk.ticket.dal.model.TrainDO;
 import com.tamk.ticket.dal.model.query.TrainQuery;
 import com.tamk.ticket.domain.Train;
 
@@ -13,7 +12,7 @@ public interface TrainService {
 
 	boolean batchInsertTrain(List<Train> trains);
 
-	int updateTrain(TrainDO trainDO);
+	int updateTrain(Train train);
 
 	int deleteTrain(TrainQuery trainQuery);
 }

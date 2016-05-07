@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.tamk.ticket.dal.model.query.TrainQuery;
 import com.tamk.ticket.domain.Train;
 import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.manager.TrainManager;
@@ -43,12 +44,10 @@ public class TicketQuery {
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		Train train = new Train();
-		train.setDescription("desc");
-		train.setTrainNick("test");
-		train.setStatus(1);
-		
-		return trainManager.insertTrain(train);
+		TrainQuery query = new TrainQuery();
+		query.setId(14L);
+
+		return trainManager.deleteTrain(query);
 	}
 
 	@ResponseBody

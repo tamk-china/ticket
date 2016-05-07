@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,9 @@ public class TrainServiceImpl implements TrainService {
 
 	@Override
 	public long insertTrain(Train train) {
-		return trainMapper.insertTrain(TrainDO.fromTrain(train));
+		TrainDO trainDo = TrainDO.fromTrain(train);
+		trainMapper.insertTrain(trainDo);
+		return trainDo.getId();
 	}
 
 	@Override
@@ -52,14 +55,15 @@ public class TrainServiceImpl implements TrainService {
 			trainMapper.batchInsertTrain(trainDos);
 			return true;
 		} catch (Exception e) {
-			log.error(String.format("batchInsertTrain trainMapper batchInsertTrain fail [trainDos = %s]", JSON.toJSONString(trainDos)));
+			log.error(String.format("batchInsertTrain trainMapper batchInsertTrain fail [trainDos = %s] [msg = %s] [exception = %s]", JSON.toJSONString(trainDos), e.getMessage(),
+					ExceptionUtils.getStackTrace(e)));
 			return false;
 		}
 	}
 
 	@Override
-	public int updateTrain(TrainDO trainDO) {
-		return trainMapper.updateTrain(trainDO);
+	public int updateTrain(Train train) {
+		return trainMapper.updateTrain(TrainDO.fromTrain(train));
 	}
 
 	@Override

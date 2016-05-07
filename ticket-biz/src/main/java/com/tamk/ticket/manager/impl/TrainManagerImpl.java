@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.tamk.ticket.dal.model.TrainDO;
 import com.tamk.ticket.dal.model.query.TrainQuery;
 import com.tamk.ticket.domain.Train;
 import com.tamk.ticket.manager.TrainManager;
@@ -33,8 +32,8 @@ public class TrainManagerImpl implements TrainManager {
 	} 
 	
 	@Override
-	public int updateTrain(TrainDO trainDO) {
-		return trainService.updateTrain(trainDO);
+	public int updateTrain(Train train) {
+		return trainService.updateTrain(train);
 	}
 
 	@Override

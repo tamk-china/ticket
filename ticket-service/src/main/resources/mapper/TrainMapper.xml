@@ -36,33 +36,36 @@
 		select 
 		<include refid="train_column" />
 		from train
-		<include refid="coditions" />
+		<include refid="conditions" />
 		limit #{start}, #{pageSize}
 	</select>
 
 	<insert id="insertTrain" parameterType="trainDO">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id	
+		</selectKey>
 		insert into train(gmt_create, gmt_modified, train_nick, status, description) 
 			values(now(), now(), #{trainNick}, #{status}, #{description})
 	</insert>
 
-	<insert id="batchInsertTrain" paramterType="java.util.List">
+	<insert id="batchInsertTrain" parameterType="java.util.List">
 		insert into train(gmt_create, gmt_modified, train_nick, status, description) values
-		<foreach collection="trainList" item="train" separator=",">
+		<foreach collection="list" item="train" separator=",">
 			(now(), now(), #{train.trainNick}, #{train.status}, #{train.description})
 		</foreach>
 	</insert>
 
-	<update id="updateTrain" paramterType="TrainDO">
+	<update id="updateTrain" parameterType="TrainDO">
 		update train 
-		set gmtModified = now()
+		set gmt_modified = now()
 		<if test="null != trainNick">
-			, set train_nick = #{trainNick}
+			, train_nick = #{trainNick}
 		</if>
 		<if test="null != status">
-			, set status = #{status}
+			, status = #{status}
 		</if>
 		<if test="null != description">
-			, set description = #{description}
+			, description = #{description}
 		</if>
 		where id = #{id}
 	</update>
@@ -70,6 +73,6 @@
 	<delete id="deleteTrain" parameterType="TrainQuery">
 		delete
 		from train
-		<include refid="coditions" />
+		<include refid="conditions" />
 	</delete>
 </mapper>

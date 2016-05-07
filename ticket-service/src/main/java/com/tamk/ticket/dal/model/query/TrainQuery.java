@@ -1,6 +1,5 @@
 package com.tamk.ticket.dal.model.query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ public class TrainQuery extends BaseQuery {
 	private String trainNick;
 	private Integer status;
 	private String description;
-	private List<Long> idList = new ArrayList<Long>();
+	private List<Long> idList;
 
 	public Long getId() {
 		return id;
