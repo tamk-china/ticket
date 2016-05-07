@@ -35,4 +35,9 @@
 		</if>
 		limit #{start}, #{pageSize}
 	</select>
+
+	<insert id="insertTrain" parameterType="trainDO">
+		insert into train(gmt_create, gmt_modified, train_nick, status, description) 
+			values(now(), now(), #{trainNick}, #{status}, #{description})
+	</insert>
 </mapper>

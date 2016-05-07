@@ -6,18 +6,25 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.tamk.ticket.dal.TrainMapper;
-import com.tamk.ticket.dal.model.TrainDO;
 import com.tamk.ticket.dal.model.query.TrainQuery;
+import com.tamk.ticket.domain.Train;
 import com.tamk.ticket.manager.TrainManager;
+import com.tamk.ticket.service.TrainService;
 
 @Service("trainManager")
 public class TrainManagerImpl implements TrainManager {
 	@Resource
-	private TrainMapper trainMapper;
+	private TrainService trainService;
+	
+	@Override
+	public List<Train> queryTrain(TrainQuery trainQuery){
+		return trainService.queryTrain(trainQuery);
+	}
 
 	@Override
-	public List<TrainDO> queryTrain(TrainQuery trainQuery){
-		return trainMapper.queryTrain(trainQuery);
+	public long insertTrain(Train train) {
+		return trainService.insertTrain(train);
 	}
+	
+	
 }

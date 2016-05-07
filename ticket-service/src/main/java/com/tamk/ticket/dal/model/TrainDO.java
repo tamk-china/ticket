@@ -2,6 +2,8 @@ package com.tamk.ticket.dal.model;
 
 import java.util.Date;
 
+import com.tamk.ticket.domain.Train;
+
 public class TrainDO {
 	private Long id;
 	private Date gmtCreate;
@@ -58,4 +60,23 @@ public class TrainDO {
 		this.description = description;
 	}
 
+	public Train toTrain() {
+		Train train = new Train();
+		train.setId(id);
+		train.setTrainNick(trainNick);
+		train.setStatus(status);
+		train.setDescription(description);
+
+		return train;
+	}
+	
+	public static TrainDO fromTrain(Train train){
+		TrainDO trainDo = new TrainDO();
+		trainDo.setId(train.getId());
+		trainDo.setDescription(train.getDescription());
+		trainDo.setStatus(train.getStatus());
+		trainDo.setTrainNick(train.getTrainNick());
+		
+		return trainDo;
+	}
 }
