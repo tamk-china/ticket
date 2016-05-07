@@ -10,10 +10,7 @@
 		status as status
 	</sql>
 
-	<select id="queryTrain" parameterType="trainQuery" resultType="trainDO">
-		select 
-		<include refid="train_column" />
-		from train
+	<sql id="conditions">
 		where 1 = 1
 		<if test="null != id">
 			and id = #{id}
@@ -33,6 +30,13 @@
 				#{item}
 			</foreach>
 		</if>
+	</sql>
+
+	<select id="queryTrain" parameterType="trainQuery" resultType="trainDO">
+		select 
+		<include refid="train_column" />
+		from train
+		<include refid="coditions" />
 		limit #{start}, #{pageSize}
 	</select>
 
@@ -40,4 +44,32 @@
 		insert into train(gmt_create, gmt_modified, train_nick, status, description) 
 			values(now(), now(), #{trainNick}, #{status}, #{description})
 	</insert>
+
+	<insert id="batchInsertTrain" paramterType="java.util.List">
+		insert into train(gmt_create, gmt_modified, train_nick, status, description) values
+		<foreach collection="trainList" item="train" separator=",">
+			(now(), now(), #{train.trainNick}, #{train.status}, #{train.description})
+		</foreach>
+	</insert>
+
+	<update id="updateTrain" paramterType="TrainDO">
+		update train 
+		set gmtModified = now()
+		<if test="null != trainNick">
+			, set train_nick = #{trainNick}
+		</if>
+		<if test="null != status">
+			, set status = #{status}
+		</if>
+		<if test="null != description">
+			, set description = #{description}
+		</if>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteTrain" parameterType="TrainQuery">
+		delete
+		from train
+		<include refid="coditions" />
+	</delete>
 </mapper>

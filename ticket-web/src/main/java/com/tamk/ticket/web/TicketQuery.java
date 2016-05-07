@@ -1,7 +1,6 @@
 package com.tamk.ticket.web;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tamk.ticket.dal.model.query.TrainQuery;
 import com.tamk.ticket.domain.Train;
 import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.manager.TrainManager;
@@ -45,11 +43,6 @@ public class TicketQuery {
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		TrainQuery query = new TrainQuery();
-		query.setIdList(Arrays.asList(1L,2L));
-		query.setDescription("ba");
-		Object ret = trainManager.queryTrain(query);
-		
 		Train train = new Train();
 		train.setDescription("desc");
 		train.setTrainNick("test");

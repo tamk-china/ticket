@@ -9,4 +9,10 @@ public interface TrainMapper {
 	List<TrainDO> queryTrain(TrainQuery trainQuery);
 	
 	long insertTrain(TrainDO train);
+	
+	void batchInsertTrain(List<TrainDO> trains);
+	
+	int updateTrain(TrainDO trainDO);
+	
+	int deleteTrain(TrainQuery trainQuery);
 }

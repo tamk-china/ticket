@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
 import com.tamk.ticket.dal.TrainMapper;
 import com.tamk.ticket.dal.model.TrainDO;
 import com.tamk.ticket.dal.model.query.TrainQuery;
@@ -15,11 +18,13 @@ import com.tamk.ticket.service.TrainService;
 
 @Service("trainService")
 public class TrainServiceImpl implements TrainService {
+	private Logger log = LoggerFactory.getLogger(TrainServiceImpl.class);
+
 	@Resource
 	private TrainMapper trainMapper;
 
 	@Override
-	public List<Train> queryTrain(TrainQuery trainQuery){
+	public List<Train> queryTrain(TrainQuery trainQuery) {
 		List<TrainDO> trainDos = trainMapper.queryTrain(trainQuery);
 		List<Train> trains = new ArrayList<Train>();
 		if (null != trainDos) {
@@ -34,5 +39,31 @@ public class TrainServiceImpl implements TrainService {
 	@Override
 	public long insertTrain(Train train) {
 		return trainMapper.insertTrain(TrainDO.fromTrain(train));
+	}
+
+	@Override
+	public boolean batchInsertTrain(List<Train> trains) {
+		List<TrainDO> trainDos = new ArrayList<TrainDO>();
+		for (Train one : trains) {
+			trainDos.add(TrainDO.fromTrain(one));
+		}
+
+		try {
+			trainMapper.batchInsertTrain(trainDos);
+			return true;
+		} catch (Exception e) {
+			log.error(String.format("batchInsertTrain trainMapper batchInsertTrain fail [trainDos = %s]", JSON.toJSONString(trainDos)));
+			return false;
+		}
+	}
+
+	@Override
+	public int updateTrain(TrainDO trainDO) {
+		return trainMapper.updateTrain(trainDO);
+	}
+
+	@Override
+	public int deleteTrain(TrainQuery trainQuery) {
+		return trainMapper.deleteTrain(trainQuery);
 	}
 }
