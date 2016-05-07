@@ -46,7 +46,7 @@ public class TicketQuery {
 	public Object test(HttpServletRequest request) {
 		TrainQuery query = new TrainQuery();
 		query.setIdList(Arrays.asList(1L,2L));
-		query.setDescription("he");
+		query.setDescription("ba");
 		Object ret = trainManager.queryTrain(query);
 		return ret;
 	}

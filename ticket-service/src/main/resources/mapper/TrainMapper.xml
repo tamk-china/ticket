@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tamk.ticket.dal.TrainMapper">
+	<sql id="train_column">
+		id as id,
+		gmt_create as gmtCreate,
+		gmt_modified as gmtModified,
+		train_nick as trainNick,
+		description as description,
+		status as status
+	</sql>
+
 	<select id="queryTrain" parameterType="trainQuery" resultType="trainDO">
-		select * from train
+		select 
+		<include refid="train_column" />
+		from train
 		where 1 = 1
 		<if test="null != id">
 			and id = #{id}
