@@ -1,14 +1,17 @@
-package com.tamk.ticket.dal.model;
+package com.tamk.ticket.dal.model.query;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-public class TrainDO {
+/**
+ * @author kuanqiang.tkq
+ */
+public class TrainQuery extends BaseQuery {
 	private Long id;
-	private Date gmtCreate;
-	private Date gmtModified;
 	private String trainNick;
 	private Integer status;
 	private String description;
+	private List<Long> idList = new ArrayList<Long>();
 
 	public Long getId() {
 		return id;
@@ -16,22 +19,6 @@ public class TrainDO {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Date getGmtCreate() {
-		return gmtCreate;
-	}
-
-	public void setGmtCreate(Date gmtCreate) {
-		this.gmtCreate = gmtCreate;
-	}
-
-	public Date getGmtModified() {
-		return gmtModified;
-	}
-
-	public void setGmtModified(Date gmtModified) {
-		this.gmtModified = gmtModified;
 	}
 
 	public String getTrainNick() {
@@ -56,6 +43,14 @@ public class TrainDO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Long> getIdList() {
+		return idList;
+	}
+
+	public void setIdList(List<Long> idList) {
+		this.idList = idList;
 	}
 
 }

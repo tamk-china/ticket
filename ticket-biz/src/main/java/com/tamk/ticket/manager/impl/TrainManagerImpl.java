@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.tamk.ticket.dal.TrainMapper;
 import com.tamk.ticket.dal.model.TrainDO;
+import com.tamk.ticket.dal.model.query.TrainQuery;
 import com.tamk.ticket.manager.TrainManager;
 
 @Service("trainManager")
@@ -16,7 +17,7 @@ public class TrainManagerImpl implements TrainManager {
 	private TrainMapper trainMapper;
 
 	@Override
-	public List<TrainDO> queryTrain(){
-		return trainMapper.queryTrain();
+	public List<TrainDO> queryTrain(TrainQuery trainQuery){
+		return trainMapper.queryTrain(trainQuery);
 	}
 }
