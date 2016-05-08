@@ -11,7 +11,6 @@
 - junit
 - session和cookie的读取
 - mybatis注解
-- 使用memchaced
 - 使用redis
 - 使用外键
 - 使用复杂sql语句，如join

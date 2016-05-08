@@ -9,4 +9,7 @@
 	</parent>
 	<artifactId>ticket-common</artifactId>
 	<name>ticket-common</name>
+
+	<dependencies>
+	</dependencies>
 </project>

@@ -2,6 +2,7 @@ package com.tamk.ticket.domain;
 
 /**
  * train的domain对象
+ * 
  * @author kuanqiang.tkq
  */
 public class Train {
@@ -41,4 +42,10 @@ public class Train {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "Train [id=" + id + ", trainNick=" + trainNick + ", status=" + status + ", description=" + description + "]";
+	}
+
 }
