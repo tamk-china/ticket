@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="mapper/mybatis-spring-config.xml" />
-	<import resource="beans/service.xml" />
-	<import resource="beans/redis-collection.xml" />
+	<import resource="beans/redis.xml" />
 	<import resource="beans/redis-service.xml" />
 
 </beans>

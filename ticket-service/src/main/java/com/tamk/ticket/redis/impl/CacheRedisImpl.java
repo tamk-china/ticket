@@ -1,4 +1,4 @@
-package com.tamk.ticket.service.impl;
+package com.tamk.ticket.redis.impl;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,28 +9,14 @@ import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
 
-import redis.clients.jedis.Jedis;
-
-import com.tamk.ticket.service.RedisService;
+import com.tamk.ticket.redis.CacheRedis;
 
 /**
  * @author kuanqiang.tkq
  */
-@Repository("redisService")
-public class RedisServiceImpl implements RedisService {
-	private Logger log = LoggerFactory.getLogger(RedisServiceImpl.class);
-
-	private Jedis jedis;
-
-	public Jedis getJedis() {
-		return jedis;
-	}
-
-	public void setJedis(Jedis jedis) {
-		this.jedis = jedis;
-	}
+public class CacheRedisImpl extends JedisParent implements CacheRedis {
+	private Logger log = LoggerFactory.getLogger(CacheRedisImpl.class);
 
 	@Override
 	public <T extends Serializable> T get(String key) {

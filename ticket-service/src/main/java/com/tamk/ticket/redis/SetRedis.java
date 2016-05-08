@@ -1,4 +1,4 @@
-package com.tamk.ticket.collection;
+package com.tamk.ticket.redis;
 
 import java.io.Serializable;
 

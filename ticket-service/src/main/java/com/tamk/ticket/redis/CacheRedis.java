@@ -1,4 +1,4 @@
-package com.tamk.ticket.service;
+package com.tamk.ticket.redis;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * @author kuanqiang.tkq
  */
-public interface RedisService {
+public interface CacheRedis {
 
 	<T extends Serializable> T get(String key);
 

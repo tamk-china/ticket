@@ -2,7 +2,6 @@ package com.tamk.ticket.web;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Arrays;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tamk.ticket.manager.CacheManager;
 import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.manager.TrainManager;
+import com.tamk.ticket.redis.ListRedis;
 import com.tamk.ticket.web.vo.TicketVo;
 
 /**
@@ -44,17 +44,18 @@ public class TicketQuery {
 
 	@Resource
 	private CacheManager cacheManager;
-
+	
+	@Resource
+	private ListRedis listRedis;
+	
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		User user = new User();
-		user.setId(123);
-		user.setName("tamk");
-		cacheManager.put("test", user);
-		cacheManager.put("xx", user);
-
-		return cacheManager.mget(Arrays.asList("test", "xx"));
+		listRedis.push("testList", "a");
+		listRedis.push("testList", "b");
+		listRedis.push("testList", "c");
+		
+		return listRedis.fetch("testList");
 	}
 
 	@ResponseBody

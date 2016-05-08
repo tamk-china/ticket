@@ -1,25 +1,16 @@
-package com.tamk.ticket.collection.impl;
+package com.tamk.ticket.redis.impl;
 
 import java.io.Serializable;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Repository;
 
-import redis.clients.jedis.Jedis;
-
-import com.tamk.ticket.collection.SetRedis;
+import com.tamk.ticket.redis.SetRedis;
 
 /**
  * @author kuanqiang.tkq
  */
-@Repository("setRedis")
-public class SetRedisImpl implements SetRedis {
-	@Resource
-	private Jedis jedis;
-
+public class SetRedisImpl extends JedisParent implements SetRedis {
 	@Override
 	public <T extends Serializable> void add(String key, T value) {
 		if (StringUtils.isEmpty(key) || null == value) {

@@ -21,8 +21,13 @@
 		<constructor-arg name="port" value="${redis.port}" />
 	</bean>
 
-	<bean id="redisService" class="com.tamk.ticket.service.impl.RedisServiceImpl">
+	<bean id="jedisParent" class=" com.tamk.ticket.redis.impl.JedisParent">
 		<property name="jedis" value="#{jedisPool.resource}" />
 	</bean>
+
+	<bean id="cacheRedis" class="com.tamk.ticket.redis.impl.CacheRedisImpl" parent="jedisParent"/>
+	<bean id="listRedis" class="com.tamk.ticket.redis.impl.ListRedisImpl" parent="jedisParent" />
+	<bean id="mapRedis" class="com.tamk.ticket.redis.impl.MapRedisImpl" parent="jedisParent" />
+	<bean id="setRedis" class="com.tamk.ticket.redis.impl.SetRedisImpl" parent="jedisParent" />
 
 </beans>

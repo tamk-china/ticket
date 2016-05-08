@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.tamk.ticket.manager.CacheManager;
-import com.tamk.ticket.service.RedisService;
+import com.tamk.ticket.redis.CacheRedis;
 
 /**
  * @author kuanqiang.tkq
@@ -17,20 +17,20 @@ import com.tamk.ticket.service.RedisService;
 @Service("cacheManager")
 public class CacheManagerImpl implements CacheManager {
 	@Resource
-	private RedisService redisService;
+	private CacheRedis cacheRedis;
 
 	@Override
 	public <T extends Serializable>  T get(String key) {
-		return redisService.get(key);
+		return cacheRedis.get(key);
 	}
 
 	@Override
 	public <T extends Serializable> boolean put(String key, T value) {
-		return redisService.put(key, value);
+		return cacheRedis.put(key, value);
 	}
 
 	@Override
 	public <T extends Serializable>  Map<String, T> mget(List<String> keys){
-		return redisService.mget(keys);
+		return cacheRedis.mget(keys);
 	}
 }

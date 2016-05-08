@@ -1,25 +1,16 @@
-package com.tamk.ticket.collection.impl;
+package com.tamk.ticket.redis.impl;
 
 import java.io.Serializable;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Repository;
 
-import redis.clients.jedis.Jedis;
-
-import com.tamk.ticket.collection.ListRedis;
+import com.tamk.ticket.redis.ListRedis;
 
 /**
  * @author kuanqiang.tkq
  */
-@Repository("listRedis")
-public class ListRedisImpl implements ListRedis {
-	@Resource
-	private Jedis jedis;
-
+public class ListRedisImpl extends JedisParent implements ListRedis {
 	@Override
 	public <T extends Serializable> void push(String key, T value) {
 		if (StringUtils.isEmpty(key) || null == value) {
@@ -30,7 +21,7 @@ public class ListRedisImpl implements ListRedis {
 	}
 
 	@Override
-	public <T extends Serializable> T get(String key) {
+	public <T extends Serializable> T fetch(String key) {
 		if (StringUtils.isEmpty(key)) {
 			throw new IllegalArgumentException();
 		}

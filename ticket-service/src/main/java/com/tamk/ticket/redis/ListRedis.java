@@ -1,4 +1,4 @@
-package com.tamk.ticket.collection;
+package com.tamk.ticket.redis;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ public interface ListRedis {
 
 	<T extends Serializable> void push(String key, T value);
 
-	<T extends Serializable> T get(String key);
+	<T extends Serializable> T fetch(String key);
 
 	long size(String key);
 

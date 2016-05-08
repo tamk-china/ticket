@@ -1,25 +1,16 @@
-package com.tamk.ticket.collection.impl;
+package com.tamk.ticket.redis.impl;
 
 import java.io.Serializable;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Repository;
 
-import redis.clients.jedis.Jedis;
-
-import com.tamk.ticket.collection.MapRedis;
+import com.tamk.ticket.redis.MapRedis;
 
 /**
  * @author kuanqiang.tkq
  */
-@Repository("mapRedis")
-public class MapRedisImpl implements MapRedis {
-	@Resource
-	private Jedis jedis;
-
+public class MapRedisImpl extends JedisParent implements MapRedis {
 	@Override
 	public <K extends Serializable, V extends Serializable> void put(String mapKey, K key, V value) {
 		if (StringUtils.isEmpty(mapKey) || null == key || null == value) {
