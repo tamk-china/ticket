@@ -17,4 +17,10 @@ public interface CacheRedis {
 
 	<T extends Serializable> Map<String, T> mget(List<String> keys);
 
+	void increase(String key);
+
+	void decreate(String key);
+
+	Long getNum(String key);
+
 }

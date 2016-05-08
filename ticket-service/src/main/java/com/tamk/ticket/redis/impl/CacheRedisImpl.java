@@ -90,4 +90,32 @@ public class CacheRedisImpl extends JedisParent implements CacheRedis {
 
 		return result;
 	}
+	
+	@Override
+	public void increase(String key){
+		if(StringUtils.isEmpty(key)){
+			throw new IllegalArgumentException();
+		}
+		
+		jedis.incr(key.getBytes());
+	}
+	
+	@Override
+	public void decreate(String key){
+		if(StringUtils.isEmpty(key)){
+			throw new IllegalArgumentException();
+		}
+		
+		jedis.decr(key.getBytes());
+	}
+	
+	@Override
+	public Long getNum(String key){
+		if(StringUtils.isEmpty(key)){
+			throw new IllegalArgumentException();
+		}
+		
+		String numStr = jedis.get(key);
+		return Long.parseLong(numStr);
+	}
 }

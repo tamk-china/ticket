@@ -21,7 +21,7 @@ public class MapRedisImpl extends JedisParent implements MapRedis {
 	}
 
 	@Override
-	public <K extends Serializable, V extends Serializable> V put(String mapKey, K key) {
+	public <K extends Serializable, V extends Serializable> V get(String mapKey, K key) {
 		if (StringUtils.isEmpty(mapKey) || null == key) {
 			throw new IllegalArgumentException();
 		}

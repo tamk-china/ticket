@@ -1,7 +1,6 @@
 package com.tamk.ticket.web;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tamk.ticket.manager.CacheManager;
 import com.tamk.ticket.manager.FileManager;
 import com.tamk.ticket.manager.TrainManager;
+import com.tamk.ticket.redis.CacheRedis;
 import com.tamk.ticket.redis.ListRedis;
+import com.tamk.ticket.redis.MapRedis;
+import com.tamk.ticket.redis.SetRedis;
 import com.tamk.ticket.web.vo.TicketVo;
 
 /**
@@ -43,19 +44,23 @@ public class TicketQuery {
 	private TrainManager trainManager;
 
 	@Resource
-	private CacheManager cacheManager;
-	
+	private CacheRedis cacheRedis;
+
 	@Resource
 	private ListRedis listRedis;
-	
+
+	@Resource
+	private SetRedis setRedis;
+
+	@Resource
+	private MapRedis mapRedis;
+
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		listRedis.push("testList", "a");
-		listRedis.push("testList", "b");
-		listRedis.push("testList", "c");
-		
-		return listRedis.fetch("testList");
+		cacheRedis.decreate("num");
+
+		return cacheRedis.getNum("num");
 	}
 
 	@ResponseBody
@@ -82,26 +87,4 @@ public class TicketQuery {
 		}
 	}
 
-	public static class User implements Serializable {
-		private static final long serialVersionUID = 7989705661451798882L;
-		private int id;
-		private String name;
-
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-	}
 }

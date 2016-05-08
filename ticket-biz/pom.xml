@@ -15,12 +15,14 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.tamk.ticket</groupId>
-			<artifactId>ticket-domain</artifactId>
+			<artifactId>ticket-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.tamk.ticket</groupId>
 			<artifactId>ticket-service</artifactId>
 		</dependency>
+
+		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>

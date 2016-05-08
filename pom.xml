@@ -16,7 +16,7 @@
 	</properties>
 	
 	<modules>
-		<module>ticket-domain</module>
+		<module>ticket-common</module>
 		<module>ticket-service</module>
 		<module>ticket-biz</module>
 		<module>ticket-web</module>
@@ -29,7 +29,7 @@
 			<!-- ================================================= -->
 			<dependency>
 				<groupId>com.tamk.ticket</groupId>
-				<artifactId>ticket-domain</artifactId>
+				<artifactId>ticket-common</artifactId>
 				<version>${ticket.version}</version>
 			</dependency>
 			<dependency>
