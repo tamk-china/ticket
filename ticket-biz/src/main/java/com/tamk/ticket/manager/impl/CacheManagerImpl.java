@@ -1,6 +1,8 @@
 package com.tamk.ticket.manager.impl;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -18,12 +20,17 @@ public class CacheManagerImpl implements CacheManager {
 	private RedisService redisService;
 
 	@Override
-	public <T> T get(String key) {
+	public <T extends Serializable>  T get(String key) {
 		return redisService.get(key);
 	}
 
 	@Override
 	public <T extends Serializable> boolean put(String key, T value) {
 		return redisService.put(key, value);
+	}
+
+	@Override
+	public <T extends Serializable>  Map<String, T> mget(List<String> keys){
+		return redisService.mget(keys);
 	}
 }

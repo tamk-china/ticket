@@ -2,6 +2,7 @@ package com.tamk.ticket.web;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -51,8 +52,9 @@ public class TicketQuery {
 		user.setId(123);
 		user.setName("tamk");
 		cacheManager.put("test", user);
+		cacheManager.put("xx", user);
 
-		return cacheManager.get("test");
+		return cacheManager.mget(Arrays.asList("test", "xx"));
 	}
 
 	@ResponseBody
@@ -79,7 +81,7 @@ public class TicketQuery {
 		}
 	}
 
-	public static class User implements Serializable{
+	public static class User implements Serializable {
 		private static final long serialVersionUID = 7989705661451798882L;
 		private int id;
 		private String name;
