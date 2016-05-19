@@ -100,5 +100,11 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 		</dependency>
+
+		<!-- Txxx -->
+		<dependency>
+			<groupId>com.tamk.Trpc</groupId>
+			<artifactId>Trpc</artifactId>
+		</dependency>
 	</dependencies>
 </project>

@@ -22,6 +22,7 @@ import com.tamk.ticket.redis.CacheRedis;
 import com.tamk.ticket.redis.ListRedis;
 import com.tamk.ticket.redis.MapRedis;
 import com.tamk.ticket.redis.SetRedis;
+import com.tamk.ticket.rpc.TestConsumer;
 import com.tamk.ticket.web.vo.TicketVo;
 
 /**
@@ -54,12 +55,14 @@ public class TicketQuery {
 
 	@Resource
 	private MapRedis mapRedis;
+	
+	@Resource
+	private TestConsumer testConsumer;
 
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request) {
-		cacheRedis.decreate("num");
-
+		testConsumer.say();
 		return cacheRedis.getNum("num");
 	}
 
