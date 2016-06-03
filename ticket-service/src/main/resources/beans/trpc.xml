@@ -8,7 +8,7 @@
 	<bean id="testProviderImpl" class="com.tamk.ticket.rpc.impl.TestProviderImpl" />
 	<bean id="testProvider" class="com.tamk.Trpc.provider.TrpcProvider" init-method="init">
 		<property name="interfaceName" value="com.tamk.ticket.rpc.TestProvider" />
-		<property name="invoker" value="testProviderImpl" />
+		<property name="invoker" ref="testProviderImpl" />
 	</bean>
 
 	<bean id="provider" class="com.tamk.Trpc.consumer.TrpcConsumer" init-method="init">
